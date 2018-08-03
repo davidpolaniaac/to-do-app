@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, Text, StyleSheet, TextInput,
+  View, StyleSheet, TextInput,
 } from 'react-native';
 
 export default class Header extends Component {
@@ -13,7 +13,6 @@ export default class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hola</Text>
         <TextInput style={styles.input} placeholder="Ingresa la nueva tarea" value={this.props.text} onChangeText={this.props.changeText} onSubmitEditing={this.props.addTask} />
       </View>
     );

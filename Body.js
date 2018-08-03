@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, Text, StyleSheet, FlatList,
+  View, StyleSheet, FlatList, ActivityIndicator,
 } from 'react-native';
 import Task from './Task';
 
@@ -14,13 +14,15 @@ export default class componentName extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> List </Text>
+        {this.props.appLoad && <ActivityIndicator size="large" color="#640064" />}
+        {!this.props.appLoad && (
         <FlatList
           data={this.props.data}
           renderItem={({ item }) => (
-            <Task item={item.text} />
+            <Task item={item} deleteTask={this.props.deleteTask} />
           )}
         />
+        )}
       </View>
     );
   }
@@ -28,7 +30,7 @@ export default class componentName extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flex: 9,
+    backgroundColor: '#98FB98',
   },
 });
